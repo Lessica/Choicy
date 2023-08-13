@@ -28,6 +28,9 @@
 #import "CHPProcessConfigurationListController.h"
 #import "CHPApplicationListSubcontrollerController.h"
 
+#import "CHPDaemonCell.h"
+#import "PSSpecifier+Choicy.h"
+
 @interface PSListController()
 - (id)controllerForSpecifier:(PSSpecifier *)specifier;
 @end
@@ -119,6 +122,8 @@
 					}
 					
 					PSSpecifier *specifier = [CHPListController createSpecifierForExecutable:info.executablePath named:info.executableName];
+					[specifier setUserInfo:@{ @"searchKey": _searchKey ?: @"" }];
+					[specifier setProperty:[CHPDaemonCell class] forKey:@"cellClass"];
 					[_specifiers addObject:specifier];
 				}
 			}

@@ -1,8 +1,9 @@
-#import "CHPSubtitleSwitch.h"
+#import "CHPSubtitleSwitchCell.h"
+#import "PSTableCell+Choicy.h"
 
 #import <Preferences/PSSpecifier.h>
 
-@implementation CHPSubtitleSwitch
+@implementation CHPSubtitleSwitchCell
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier specifier:(PSSpecifier *)specifier
 {
@@ -11,6 +12,12 @@
 		self.detailTextLabel.text = [specifier propertyForKey:@"subtitle"];
 	}
 	return self;
+}
+
+- (void)refreshCellContentsWithSpecifier:(PSSpecifier*)specifier
+{
+	[super refreshCellContentsWithSpecifier:specifier];
+	[self choicy_addSearchHighlights];
 }
 
 @end

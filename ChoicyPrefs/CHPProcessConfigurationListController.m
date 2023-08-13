@@ -226,7 +226,7 @@
 						  cell:PSSwitchCell
 						  edit:nil];
 			
-			[tweakSpecifier setProperty:NSClassFromString(@"CHPSubtitleSwitch") forKey:@"cellClass"];
+			[tweakSpecifier setProperty:NSClassFromString(@"CHPSubtitleSwitchCell") forKey:@"cellClass"];
 			[tweakSpecifier setProperty:@(enabled) forKey:@"enabled"];
 			[tweakSpecifier setProperty:tweakInfo.dylibName forKey:@"key"];
 			[tweakSpecifier setProperty:@NO forKey:@"default"];

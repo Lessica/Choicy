@@ -27,6 +27,8 @@
 #import "CHPPreferences.h"
 #import "../ChoicyPrefsMigrator.h"
 
+#import "PSSpecifier+Choicy.h"
+
 @implementation CHPGlobalTweakConfigurationController
 
 - (NSString *)topTitle
@@ -84,7 +86,8 @@
 				atLeastOneTweakDisabled = YES;
 			}
 			
-			[tweakSpecifier setProperty:NSClassFromString(@"CHPSubtitleSwitch") forKey:@"cellClass"];
+			[tweakSpecifier setUserInfo:@{ @"searchKey": _searchKey ?: @"" }];
+			[tweakSpecifier setProperty:NSClassFromString(@"CHPSubtitleSwitchCell") forKey:@"cellClass"];
 			[tweakSpecifier setProperty:@(enabled) forKey:@"enabled"];
 			[tweakSpecifier setProperty:tweakInfo.dylibName forKey:@"key"];
 			[tweakSpecifier setProperty:@YES forKey:@"default"];
